@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godown Manager — गोदाम का डिजिटल लाल खाता</title>
+<meta name="description" content="Godown Manager — Real-time stock tracking for godowns, warehouses and shops. Works offline, syncs instantly, connects up to 10 devices. Built for Indian business owners.">
+<meta name="keywords" content="godown management software, warehouse inventory app, stock tracking India, godown software hindi, inventory management small business">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Tiro+Devanagari+Hindi:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0E0C0A;
+  --ink2:#161310;
+  --ink3:#1E1A16;
+  --ink4:#252018;
+  --gold:#C8922A;
+  --gold-light:#E8B44A;
+  --gold-pale:#F5D98A;
+  --saffron:#E05C1A;
+  --cream:#F5EDD8;
+  --cream2:#EDE0C4;
+  --muted:#8A7D6B;
+  --muted2:#6B5E4E;
+  --green:#22C55E;
+  --red:#EF4444;
+  --border:rgba(200,146,42,0.15);
+  --border2:rgba(200,146,42,0.08);
+  --glow:rgba(200,146,42,0.25);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:10px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(14,12,10,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border2);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Playfair Display',serif;
+  font-size:45px;font-weight:700;
+  color:var(--cream);
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:56px;height:56px;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:38px;
+  box-shadow:0 4px 16px rgba(200,146,42,0.3);
+}
+.nav-tagline{
+  font-size:20px;
+  font-family:'Tiro Devanagari Hindi',serif;
+  color:var(--gold);
+  letter-spacing:0.5px;
+  line-height:1.2;
+}
+.nav-cta{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  color:var(--ink);
+  font-weight:700;font-size:13px;
+  padding:10px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  letter-spacing:0.3px;
+  box-shadow:0 4px 20px rgba(200,146,42,0.3);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(200,146,42,0.45)}
+
+/* ── SECTIONS ── */
+section{padding:120px 5%}
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding-top:140px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Background texture */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -10%,rgba(200,146,42,0.12) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 60%,rgba(224,92,26,0.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%,rgba(200,146,42,0.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* Grid lines */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,146,42,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(200,146,42,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+.hero-inner{position:relative;z-index:1;max-width:900px}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(200,146,42,0.08);
+  border:1px solid rgba(200,146,42,0.25);
+  border-radius:100px;
+  padding:8px 20px;
+  font-size:11px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:36px;
+  animation:fadeUp 0.8s ease both;
+}
+.eyebrow-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 10px var(--green);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero-tagline-hindi{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(16px,2.5vw,22px);
+  color:var(--gold);
+  margin-bottom:20px;
+  letter-spacing:0.5px;
+  animation:fadeUp 0.9s 0.1s ease both;
+  font-style:italic;
+}
+
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,9vw,108px);
+  font-weight:900;
+  line-height:0.92;
+  letter-spacing:-1px;
+  margin-bottom:12px;
+  animation:fadeUp 1s 0.15s ease both;
+}
+.hero-h1 .gold{color:var(--gold-light)}
+.hero-h1 .outline{
+  -webkit-text-stroke:2px var(--gold);
+  color:transparent;
+}
+
+.hero-sub{
+  font-size:clamp(15px,2vw,19px);
+  font-weight:300;
+  color:var(--muted);
+  max-width:580px;
+  margin:28px auto 52px;
+  line-height:1.7;
+  animation:fadeUp 1s 0.25s ease both;
+}
+.hero-sub strong{color:var(--cream);font-weight:600}
+
+.hero-cta-group{
+  display:flex;gap:16px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:72px;
+  animation:fadeUp 1s 0.35s ease both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  color:var(--ink);
+  font-weight:700;font-size:15px;
+  padding:16px 36px;border-radius:10px;
+  text-decoration:none;letter-spacing:0.3px;
+  box-shadow:0 8px 32px rgba(200,146,42,0.35);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(200,146,42,0.5)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:transparent;
+  border:1px solid rgba(200,146,42,0.3);
+  color:var(--cream);
+  font-weight:500;font-size:15px;
+  padding:16px 36px;border-radius:10px;
+  text-decoration:none;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-secondary:hover{border-color:var(--gold);background:rgba(200,146,42,0.06)}
+
+/* Trust bar */
+.trust-bar{
+  display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;
+  padding:20px 32px;
+  background:rgba(200,146,42,0.05);
+  border:1px solid var(--border);
+  border-radius:16px;
+  animation:fadeUp 1s 0.45s ease both;
+}
+.trust-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--muted);font-weight:500;
+}
+.trust-item .tick{color:var(--green);font-size:15px}
+.trust-sep{width:1px;height:20px;background:var(--border)}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── PHONE MOCKUP ── */
+.hero-visual{
+  margin-top:80px;
+  position:relative;z-index:1;
+  display:flex;justify-content:center;gap:24px;align-items:flex-start;
+  animation:fadeUp 1.2s 0.55s ease both;
+}
+.phone{
+  width:220px;
+  background:var(--ink2);
+  border-radius:30px;
+  border:1.5px solid rgba(200,146,42,0.2);
+  box-shadow:0 40px 100px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.03),inset 0 1px 0 rgba(200,146,42,0.1);
+  overflow:hidden;
+  flex-shrink:0;
+}
+.phone.center{
+  margin-top:-24px;
+  border-color:rgba(200,146,42,0.4);
+  box-shadow:0 40px 120px rgba(0,0,0,0.8),0 0 60px rgba(200,146,42,0.15),inset 0 1px 0 rgba(200,146,42,0.2);
+}
+.phone-notch{
+  height:28px;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+}
+.notch-bar{width:70px;height:6px;background:var(--ink3);border-radius:3px}
+.p-screen{padding:12px}
+.p-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;
+  font-size:11px;font-weight:700;color:var(--cream);
+}
+.p-logo-row{display:flex;align-items:center;gap:6px}
+.p-logo-box{
+  width:22px;height:22px;border-radius:6px;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+}
+.p-badge-green{
+  background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);
+  border-radius:100px;padding:2px 8px;font-size:9px;color:var(--green);font-weight:600;
+}
+.p-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.p-stat{
+  background:var(--ink3);border-radius:8px;padding:8px;
+  border:1px solid rgba(200,146,42,0.08);
+}
+.p-stat-label{font-size:8px;color:var(--muted);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.p-stat-val{font-size:16px;font-weight:700;color:var(--gold-light);line-height:1}
+.p-stat-sub{font-size:8px;color:var(--green);margin-top:2px}
+.p-section-title{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.p-item-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:6px 8px;
+  background:var(--ink3);border-radius:6px;margin-bottom:4px;
+  border:1px solid var(--border2);
+  font-size:9px;
+}
+.p-item-name{color:var(--cream);font-weight:600}
+.p-item-loc{color:var(--muted)}
+.p-item-qty{color:var(--gold-light);font-weight:700;font-family:'JetBrains Mono',monospace}
+
+.p-movement{
+  background:rgba(200,146,42,0.06);
+  border:1px solid rgba(200,146,42,0.15);
+  border-radius:8px;padding:10px;margin-bottom:6px;
+}
+.p-move-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:9px}
+.p-move-staff{color:var(--gold);font-weight:700;letter-spacing:0.5px}
+.p-move-time{color:var(--muted)}
+.p-move-route{
+  display:flex;align-items:center;gap:4px;font-size:9px;margin-bottom:4px;
+  color:var(--cream2);
+}
+.p-move-arrow{color:var(--gold);font-weight:700}
+.p-move-qty{font-size:11px;font-weight:700;color:var(--gold-light);font-family:'JetBrains Mono',monospace}
+
+.p-save-btn{
+  display:block;text-align:center;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  color:var(--ink);font-weight:700;font-size:11px;letter-spacing:1px;
+  padding:9px;border-radius:8px;margin-top:8px;
+}
+
+/* ══════════════════════════════════
+   PROBLEM
+══════════════════════════════════ */
+.problem-section{
+  background:var(--ink2);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.section-eyebrow{
+  display:inline-block;
+  font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.section-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,60px);
+  font-weight:700;line-height:1.1;
+  margin-bottom:20px;
+}
+.section-h2 .gold{color:var(--gold-light)}
+.section-lead{
+  font-size:22px;color:var(--muted);max-width:560px;line-height:1.75;margin-bottom:56px;
+}
+
+.problem-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;
+}
+.problem-card{
+  background:var(--ink3);
+  border:1px solid rgba(239,68,68,0.15);
+  border-radius:16px;padding:28px;
+  position:relative;overflow:hidden;
+}
+.problem-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--red),transparent);
+}
+.problem-icon{font-size:28px;margin-bottom:14px}
+.problem-title{font-size:15px;font-weight:700;color:var(--cream);margin-bottom:8px}
+.problem-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.problem-tag{
+  display:inline-block;margin-top:12px;
+  background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);
+  color:#FCA5A5;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;
+}
+
+/* ══════════════════════════════════
+   SOLUTION / STORY
+══════════════════════════════════ */
+.story-section{}
+.story-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:768px){.story-layout{grid-template-columns:1fr}}
+.story-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,32px);
+  font-style:italic;
+  color:var(--cream2);
+  line-height:1.45;
+  border-left:3px solid var(--gold);
+  padding-left:24px;
+  margin-bottom:32px;
+}
+.story-para{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px}
+.story-para strong{color:var(--cream);font-weight:600}
+
+.solved-list{display:flex;flex-direction:column;gap:20px}
+.solved-item{
+  display:flex;gap:16px;
+  padding:20px;
+  background:var(--ink3);border-radius:12px;
+  border:1px solid var(--border2);
+  transition:border-color 0.2s;
+}
+.solved-item:hover{border-color:rgba(200,146,42,0.3)}
+.solved-num{
+  width:36px;height:36px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:900;font-size:14px;color:var(--ink);
+}
+.solved-text{}
+.solved-title{font-size:14px;font-weight:700;color:var(--cream);margin-bottom:4px}
+.solved-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ══════════════════════════════════
+   FEATURES
+══════════════════════════════════ */
+.features-section{
+  background:var(--ink2);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.features-header{text-align:center;max-width:640px;margin:0 auto 64px}
+.feature-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;
+}
+.feat{
+  background:var(--ink3);border:1px solid var(--border2);border-radius:16px;
+  padding:28px;position:relative;overflow:hidden;
+  transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;
+}
+.feat:hover{
+  transform:translateY(-4px);
+  border-color:rgba(200,146,42,0.35);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(200,146,42,0.08);
+}
+.feat::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.feat:hover::before{opacity:1}
+.feat-emoji{font-size:32px;margin-bottom:16px;display:block}
+.feat-title{font-size:16px;font-weight:700;color:var(--cream);margin-bottom:8px}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.feat-tag{
+  display:inline-block;margin-top:14px;
+  font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;
+}
+.tag-gold{background:rgba(200,146,42,0.1);color:var(--gold-light);border:1px solid rgba(200,146,42,0.2)}
+.tag-green{background:rgba(34,197,94,0.08);color:#86EFAC;border:1px solid rgba(34,197,94,0.2)}
+.tag-blue{background:rgba(59,130,246,0.08);color:#93C5FD;border:1px solid rgba(59,130,246,0.2)}
+.tag-orange{background:rgba(249,115,22,0.08);color:#FDBA74;border:1px solid rgba(249,115,22,0.2)}
+
+/* ══════════════════════════════════
+   HOW IT WORKS
+══════════════════════════════════ */
+.how-section{}
+.how-header{text-align:center;max-width:580px;margin:0 auto 64px}
+.steps-row{
+  display:flex;align-items:flex-start;justify-content:center;
+  gap:0;flex-wrap:wrap;
+  max-width:900px;margin:0 auto;
+}
+.step{
+  flex:1;min-width:140px;max-width:180px;
+  text-align:center;position:relative;padding:0 16px;
+}
+.step:not(:last-child)::after{
+  content:'→';
+  position:absolute;right:-12px;top:28px;
+  font-size:20px;color:var(--gold);opacity:0.4;
+}
+.step-circle{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(200,146,42,0.2),rgba(224,92,26,0.2));
+  border:1.5px solid rgba(200,146,42,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:900;font-size:20px;color:var(--gold-light);
+  margin:0 auto 16px;
+}
+.step-title{font-size:18px;font-weight:700;color:var(--cream);margin-bottom:6px}
+.step-sub{font-size:16px;color:var(--muted);line-height:1.5}
+
+.time-badge{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:48px;
+  background:rgba(200,146,42,0.06);border:1px solid rgba(200,146,42,0.2);
+  border-radius:12px;padding:16px 32px;width:fit-content;margin-left:auto;margin-right:auto;
+}
+.time-badge-text{font-size:15px;font-weight:600;color:var(--cream)}
+.time-badge-num{
+  font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;
+  color:var(--gold-light);
+}
+
+/* ══════════════════════════════════
+   DEVICES / TRUST
+══════════════════════════════════ */
+.trust-section{
+  background:var(--ink2);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.trust-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:768px){.trust-layout{grid-template-columns:1fr}}
+
+.device-visual{
+  position:relative;
+  height:300px;
+  display:flex;align-items:center;justify-content:center;
+}
+.device-hub{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--saffron));
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;
+  box-shadow:0 0 60px rgba(200,146,42,0.4);
+  position:absolute;z-index:2;
+}
+.device-orbit{
+  position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  border:1px dashed rgba(200,146,42,0.2);
+  animation:spin 18s linear infinite;
+}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.orbit-dot{
+  position:absolute;
+  width:44px;height:44px;
+  border-radius:10px;
+  background:var(--ink3);
+  border:1px solid rgba(200,146,42,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.4);
+}
+.orbit-dot:nth-child(1){top:-22px;left:calc(50% - 22px)}
+.orbit-dot:nth-child(2){right:-22px;top:calc(50% - 22px)}
+.orbit-dot:nth-child(3){bottom:-22px;left:calc(50% - 22px)}
+.orbit-dot:nth-child(4){left:-22px;top:calc(50% - 22px)}
+
+.trust-stats{display:flex;flex-direction:column;gap:20px}
+.t-stat{
+  padding:20px 24px;
+  background:var(--ink3);border-radius:12px;border:1px solid var(--border2);
+  display:flex;align-items:center;gap:20px;
+}
+.t-stat-val{
+  font-family:'JetBrains Mono',monospace;
+  font-size:32px;font-weight:700;color:var(--gold-light);
+  flex-shrink:0;min-width:70px;
+}
+.t-stat-info{}
+.t-stat-title{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:2px}
+.t-stat-sub{font-size:12px;color:var(--muted)}
+
+.trust-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.t-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(200,146,42,0.06);border:1px solid rgba(200,146,42,0.15);
+  border-radius:8px;padding:8px 14px;
+  font-size:12px;font-weight:500;color:var(--cream2);
+}
+.t-badge .tick{color:var(--green)}
+
+/* ══════════════════════════════════
+   CUSTOMISATION
+══════════════════════════════════ */
+.custom-section{}
+.custom-header{max-width:600px;margin-bottom:56px}
+.custom-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.custom-card{
+  background:var(--ink3);border:1px solid var(--border2);border-radius:14px;padding:24px;
+  transition:border-color 0.2s;
+}
+.custom-card:hover{border-color:rgba(200,146,42,0.3)}
+.custom-icon{font-size:24px;margin-bottom:12px}
+.custom-title{font-size:14px;font-weight:700;color:var(--cream);margin-bottom:6px}
+.custom-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ══════════════════════════════════
+   CTA FINAL
+══════════════════════════════════ */
+.cta-section{
+  background:var(--ink2);
+  border-top:1px solid var(--border2);
+  text-align:center;
+}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,6vw,72px);
+  font-weight:900;line-height:1;
+  margin-bottom:8px;
+}
+.cta-h2 .gold{color:var(--gold-light)}
+.cta-hindi{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(18px,3vw,26px);
+  color:var(--gold);font-style:italic;
+  margin-bottom:24px;
+}
+.cta-sub{font-size:17px;color:var(--muted);max-width:500px;margin:0 auto 48px;line-height:1.7}
+
+.contact-cards{display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto 48px}
+.contact-card{
+  display:flex;justify-content:center;text-align:center;align-items:center;gap:20px;
+  padding:20px 24px;border-radius:14px;
+  border:1px solid;text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.contact-card:hover{transform:translateY(-2px)}
+.contact-card.email{background:rgba(234,67,53,0.06);border-color:rgba(234,67,53,0.2)}
+.contact-card.linkedin{background:rgba(10,102,194,0.06);border-color:rgba(10,102,194,0.2)}
+.contact-card.github{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.1)}
+.c-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;
+}
+.c-icon.email{background:rgba(234,67,53,0.15)}
+.c-icon.linkedin{background:rgba(10,102,194,0.15)}
+.c-icon.github{background:rgba(255,255,255,0.07)}
+.c-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px}
+.c-label.email{color:rgba(234,67,53,0.9)}
+.c-label.linkedin{color:rgba(99,152,219,0.9)}
+.c-label.github{color:rgba(255,255,255,0.5)}
+.c-val{font-size:14px;font-weight:600;color:var(--cream)}
+.c-hint{font-size:11px;color:var(--muted)}
+.c-arrow{color:var(--muted);margin-left:auto;font-size:16px}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer{
+  padding:32px 5%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  border-top:1px solid var(--border2);
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;color:var(--cream);
+}
+.footer-brand span{color:var(--gold)}
+.footer-tagline{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:18px;color:var(--gold);font-style:italic;
+}
+.footer-copy{font-size:15px;color:var(--muted2)}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:768px){
+  section{padding:80px 6%}
+  .hero-visual{overflow:hidden}
+  .phone:not(.center){display:none}
+  .steps-row{gap:20px}
+  .step:not(:last-child)::after{display:none}
+  .device-visual{height:220px}
+  .device-orbit{width:180px;height:180px}
+  nav .nav-cta span{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">📦</div>
+    <div>
+      <div>Godown Manager</div>
+      <div class="nav-tagline">गोदाम का डिजिटल लाल खाता</div>
+    </div>
+  </a>
+  <a class="nav-cta" href="#contact">
+    <span>Get Started</span> →
+  </a>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Now Live · Up to 10 Devices
+    </div>
+
+    <div class="hero-tagline-hindi">गोदाम का डिजिटल लाल खाता</div>
+
+    <h1 class="hero-h1">
+      GODOWN<br>
+      <span class="gold">MANAGER</span>
+    </h1>
+
+    <p class="hero-sub">
+      Your godown. Your shop. Your stock.<br>
+      <strong>All in one place. Always accurate. Always real-time.</strong><br>
+      No paper. No guesswork. No losses.
+    </p>
+
+    <div class="hero-cta-group">
+      <a class="btn-primary" href="#contact">📦 Get It For Your Business</a>
+      <a class="btn-secondary" href="#features">See How It Works →</a>
+    </div>
+
+    <div class="trust-bar">
+      <div class="trust-item"><span class="tick">✓</span> Works Offline</div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="tick">✓</span> 10 Devices Sync</div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="tick">✓</span> Any Business Type</div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="tick">✓</span> Under 5 Seconds Per Entry</div>
+    </div>
+  </div>
+
+  <!-- Phone mockups -->
+  <div class="hero-visual">
+    <!-- Left phone: Stock view -->
+    <div class="phone">
+      <div class="phone-notch"><div class="notch-bar"></div></div>
+      <div class="p-screen">
+        <div class="p-header">
+          <div class="p-logo-row">
+            <div class="p-logo-box">📦</div>
+            Stock View
+          </div>
+          <div class="p-badge-green">● Live</div>
+        </div>
+        <div class="p-section-title">Current Stock</div>
+        <div class="p-item-row"><div class="p-item-name">Item A</div><div class="p-item-loc">Godown 1</div><div class="p-item-qty">350</div></div>
+        <div class="p-item-row"><div class="p-item-name">Item B</div><div class="p-item-loc">Shop</div><div class="p-item-qty">120</div></div>
+        <div class="p-item-row"><div class="p-item-name">Item C</div><div class="p-item-loc">Godown 2</div><div class="p-item-qty">84</div></div>
+        <div class="p-item-row"><div class="p-item-name">Item D</div><div class="p-item-loc">Shop</div><div class="p-item-qty">200</div></div>
+      </div>
+    </div>
+
+    <!-- Center phone: Add movement -->
+    <div class="phone center">
+      <div class="phone-notch"><div class="notch-bar"></div></div>
+      <div class="p-screen">
+        <div class="p-header">
+          <div class="p-logo-row">
+            <div class="p-logo-box">📦</div>
+            Add Movement
+          </div>
+          <div class="p-badge-green">● Synced</div>
+        </div>
+        <div class="p-stat-row">
+          <div class="p-stat">
+            <div class="p-stat-label">Today</div>
+            <div class="p-stat-val">29</div>
+            <div class="p-stat-sub">↑ movements</div>
+          </div>
+          <div class="p-stat">
+            <div class="p-stat-label">Devices</div>
+            <div class="p-stat-val">7</div>
+            <div class="p-stat-sub">● online</div>
+          </div>
+        </div>
+        <div class="p-movement">
+          <div class="p-move-top">
+            <div class="p-move-staff">RAI</div>
+            <div class="p-move-time">5:33 PM</div>
+          </div>
+          <div class="p-move-route">
+            <span>Supplier</span>
+            <span class="p-move-arrow">→</span>
+            <span>Godown 1</span>
+          </div>
+          <div class="p-move-qty">+100 pcs</div>
+        </div>
+        <div class="p-movement">
+          <div class="p-move-top">
+            <div class="p-move-staff">SURESH</div>
+            <div class="p-move-time">4:10 PM</div>
+          </div>
+          <div class="p-move-route">
+            <span>Godown 1</span>
+            <span class="p-move-arrow">→</span>
+            <span>Shop</span>
+          </div>
+          <div class="p-move-qty">50 pcs</div>
+        </div>
+        <div class="p-save-btn">📦 SAVE MOVEMENT</div>
+      </div>
+    </div>
+
+    <!-- Right phone: History -->
+    <div class="phone">
+      <div class="phone-notch"><div class="notch-bar"></div></div>
+      <div class="p-screen">
+        <div class="p-header">
+          <div class="p-logo-row">
+            <div class="p-logo-box">📦</div>
+            History
+          </div>
+          <div class="p-badge-green">30 days</div>
+        </div>
+        <div class="p-section-title">Movement Log</div>
+        <div class="p-item-row" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <div style="display:flex;justify-content:space-between;width:100%"><div class="p-item-name">Item A · 50 pcs</div><div class="p-item-qty" style="font-size:8px;color:var(--muted)">5:33 PM</div></div>
+          <div class="p-item-loc">Godown 1 → Shop · RAMESH</div>
+        </div>
+        <div class="p-item-row" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <div style="display:flex;justify-content:space-between;width:100%"><div class="p-item-name">Item B · 100 pcs</div><div class="p-item-qty" style="font-size:8px;color:var(--muted)">4:15 PM</div></div>
+          <div class="p-item-loc">Supplier → Godown 2 · RAI</div>
+        </div>
+        <div class="p-item-row" style="flex-direction:column;align-items:flex-start;gap:3px;">
+          <div style="display:flex;justify-content:space-between;width:100%"><div class="p-item-name">Item C · 200 pcs</div><div class="p-item-qty" style="font-size:8px;color:var(--muted)">2:00 PM</div></div>
+          <div class="p-item-loc">Godown 1 → Shop · SURESH</div>
+        </div>
+        <div style="text-align:center;font-size:8px;color:var(--muted);padding:8px;font-family:'JetBrains Mono',monospace">· · · 30-day full trail · · ·</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROBLEM ════════ -->
+<section class="problem-section" id="problem">
+  <div class="section-eyebrow">The Real Problem</div>
+  <h2 class="section-h2">You're Running Your<br>Godown on <span class="gold">Paper & Memory.</span></h2>
+  <p class="section-lead">Every day, stock leaves. Paper gets written. Register gets updated at night. By morning, the numbers are already wrong. Sound familiar?</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📝</div>
+      <div class="problem-title">Paper Gets Lost</div>
+      <div class="problem-desc">Chits, receipts, rough notes — they disappear. At month-end, nobody remembers what happened on Day 3.</div>
+      <div class="problem-tag">Daily Loss</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">⏱️</div>
+      <div class="problem-title">Delayed Entries</div>
+      <div class="problem-desc">Staff takes goods in the afternoon. Register entry happens at night. Those 8 hours? Complete blind spot.</div>
+      <div class="problem-tag">8 Hours Blind</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🤔</div>
+      <div class="problem-title">Godown Mismatch</div>
+      <div class="problem-desc">You call the godown staff. They give a number. The register says something else. Both are wrong.</div>
+      <div class="problem-tag">Trust Problem</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">❌</div>
+      <div class="problem-title">No Accountability</div>
+      <div class="problem-desc">Goods go missing. Nobody can trace who moved what, where, and when. Arguments. Losses. Blame.</div>
+      <div class="problem-tag">Zero Traceability</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STORY / SOLUTION ════════ -->
+<section class="story-section" id="story">
+  <div class="story-layout">
+    <div>
+      <div class="section-eyebrow">Our Story</div>
+      <div class="story-quote">"We built this because we watched a real godown run on paper chits — and lose lakhs."</div>
+      <p class="story-para">A textile business. Multiple godowns. 7 staff members with phones. <strong>No way to know the real stock without calling everyone.</strong> The register was always 12 hours behind reality.</p>
+      <p class="story-para">We tried spreadsheets. Too slow. We tried WhatsApp messages. Impossible to track. We tried other apps. Too complicated for godown staff to use.</p>
+      <p class="story-para"><strong>So we built Godown Manager</strong> — from scratch, the right way. Offline-first. Simple enough for anyone. Fast enough to use between two movements.</p>
+    </div>
+
+    <div class="solved-list">
+      <div class="section-eyebrow">3 Hardest Problems App Solves</div>
+      <div class="solved-item">
+        <div class="solved-num">1</div>
+        <div class="solved-text">
+          <div class="solved-title">Works Without Internet</div>
+          <div class="solved-desc">Godowns don't always have good network. We built the entire app offline-first — entries save locally and auto-sync the moment connection returns. Not a single entry is ever lost.</div>
+        </div>
+      </div>
+      <div class="solved-item">
+        <div class="solved-num">2</div>
+        <div class="solved-text">
+          <div class="solved-title">All Devices Stay Perfectly in Sync</div>
+          <div class="solved-desc">Multiple staff, multiple phones. When one person records a movement, every other device updates in under 1 second — even after hours offline. No conflicts. No duplicates.</div>
+        </div>
+      </div>
+      <div class="solved-item">
+        <div class="solved-num">3</div>
+        <div class="solved-text">
+          <div class="solved-title">Simple Enough for Anyone</div>
+          <div class="solved-desc">We tested it with staff who had never used an inventory app. 4 taps. Done. Under 5 seconds per entry. No training needed. If you can use WhatsApp, you can use this.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FEATURES ════════ -->
+<section class="features-section" id="features">
+  <div class="features-header">
+    <div class="section-eyebrow">What You Get</div>
+    <h2 class="section-h2">Everything Your<br>Godown <span class="gold">Actually Needs</span></h2>
+    <p class="section-lead" style="max-width:100%">No bloat. No confusion. Just the features that matter for real inventory control.</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feat">
+      <span class="feat-emoji">⚡</span>
+      <div class="feat-title">Real-Time Stock Updates</div>
+      <div class="feat-desc">Every movement updates stock across all devices instantly. No refresh needed. No calling staff for numbers. Just look at the screen.</div>
+      <div class="feat-tag tag-gold">Under 1 Second</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">📶</span>
+      <div class="feat-title">100% Offline-First</div>
+      <div class="feat-desc">No internet in the godown? No problem. Record every movement. It all syncs automatically when connection comes back. Nothing is lost.</div>
+      <div class="feat-tag tag-green">Zero Data Loss</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">🏭</span>
+      <div class="feat-title">Multi-Location View</div>
+      <div class="feat-desc">Track stock across all your godowns and shop from one screen. Know exactly what's where — no phone calls, no confusion.</div>
+      <div class="feat-tag tag-blue">All Locations</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">📋</span>
+      <div class="feat-title">30-Day Movement History</div>
+      <div class="feat-desc">Every movement logged with staff name, time, quantity, and route. Full audit trail. Find any entry in seconds.</div>
+      <div class="feat-tag tag-gold">Full Traceability</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">👥</span>
+      <div class="feat-title">Role-Based Access</div>
+      <div class="feat-desc">Admin controls everything. Staff can only record movements and view stock. Nobody can mess with data they shouldn't touch.</div>
+      <div class="feat-tag tag-green">Admin + Staff</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">✏️</span>
+      <div class="feat-title">Edit with Full Audit</div>
+      <div class="feat-desc">Mistakes happen. Edit any entry — and the app records who edited it, when, and what changed. Nothing hidden.</div>
+      <div class="feat-tag tag-orange">Accountable</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">📱</span>
+      <div class="feat-title">Works on Any Android</div>
+      <div class="feat-desc">No expensive hardware. Install on any Android phone your staff already has. From ₹5,000 phones to flagships — it works.</div>
+      <div class="feat-tag tag-blue">Any Device</div>
+    </div>
+    <div class="feat">
+      <span class="feat-emoji">🔧</span>
+      <div class="feat-title">Customisable for Your Business</div>
+      <div class="feat-desc">Textile, hardware, FMCG, pharma — set your own items, locations, units, and staff. Godown Manager adapts to you, not the other way.</div>
+      <div class="feat-tag tag-gold">Any Industry</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HOW IT WORKS ════════ -->
+<section class="how-section" id="how">
+  <div class="how-header">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-h2">From Movement to <span class="gold">Record</span></h2>
+    <p class="section-lead" style="margin-bottom:0">Any staff member can log a movement in under 5 seconds.</p>
+  </div>
+
+  <div class="steps-row">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <div class="step-title">Open App</div>
+      <div class="step-sub">Tap Add Movement on home screen</div>
+    </div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <div class="step-title">Select Item</div>
+      <div class="step-sub">Pick from your item list</div>
+    </div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <div class="step-title">Enter Qty</div>
+      <div class="step-sub">Type the quantity moved</div>
+    </div>
+    <div class="step">
+      <div class="step-circle">4</div>
+      <div class="step-title">Pick Route</div>
+      <div class="step-sub">From location → To location</div>
+    </div>
+    <div class="step">
+      <div class="step-circle" style="background:linear-gradient(135deg,var(--gold),var(--saffron));border-color:var(--gold);color:var(--ink);">✓</div>
+      <div class="step-title">Done</div>
+      <div class="step-sub">Stock updates everywhere</div>
+    </div>
+  </div>
+
+  <div class="time-badge">
+    <div class="time-badge-num">&lt; 5s</div>
+    <div class="time-badge-text">— Average time per entry. That's it.</div>
+  </div>
+</section>
+
+<!-- ════════ DEVICES / TRUST ════════ -->
+<section class="trust-section" id="trust">
+  <div class="trust-layout">
+    <div class="device-visual">
+      <div class="device-hub">📦</div>
+      <div class="device-orbit">
+        <div class="orbit-dot">📱</div>
+        <div class="orbit-dot">💻</div>
+        <div class="orbit-dot">📱</div>
+        <div class="orbit-dot">📟</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-eyebrow">Built for Teams</div>
+      <h2 class="section-h2">One App.<br><span class="gold">10 Devices.</span><br>Zero Confusion.</h2>
+      <p class="section-lead" style="margin-bottom:32px">Connect your entire team — godown staff, shop counter, manager, owner — all seeing the same live data at the same time.</p>
+
+      <div class="trust-stats">
+        <div class="t-stat">
+          <div class="t-stat-val">10</div>
+          <div class="t-stat-info">
+            <div class="t-stat-title">Devices Simultaneously</div>
+            <div class="t-stat-sub">All synced in real-time, even after offline periods</div>
+          </div>
+        </div>
+        <div class="t-stat">
+          <div class="t-stat-val">&lt;1s</div>
+          <div class="t-stat-info">
+            <div class="t-stat-title">Sync Speed</div>
+            <div class="t-stat-sub">Movement on one phone appears on all others instantly</div>
+          </div>
+        </div>
+        <div class="t-stat">
+          <div class="t-stat-val">30d</div>
+          <div class="t-stat-info">
+            <div class="t-stat-title">Movement History</div>
+            <div class="t-stat-sub">Full searchable trail with staff name & timestamp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-badges">
+        <div class="t-badge"><span class="tick">✓</span> Offline-safe</div>
+        <div class="t-badge"><span class="tick">✓</span> Role-protected</div>
+        <div class="t-badge"><span class="tick">✓</span> Edit audit trail</div>
+        <div class="t-badge"><span class="tick">✓</span> No data loss</div>
+        <div class="t-badge"><span class="tick">✓</span> Any Android</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CUSTOMISATION ════════ -->
+<section class="custom-section" id="customise">
+  <div class="custom-header">
+    <div class="section-eyebrow">Any Business. Any Industry.</div>
+    <h2 class="section-h2">Made for Your<br><span class="gold">Business, Not Ours</span></h2>
+    <p class="section-lead">Godown Manager isn't locked to one industry. Set it up for your items, your locations, your workflow.</p>
+  </div>
+
+  <div class="custom-grid">
+    <div class="custom-card">
+      <div class="custom-icon">🏷️</div>
+      <div class="custom-title">Custom Items & Units</div>
+      <div class="custom-desc">Add any items with your own units — pcs, kg, meters, boxes, rolls. No restrictions.</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-icon">🏭</div>
+      <div class="custom-title">Your Locations</div>
+      <div class="custom-desc">Name your godowns and shops exactly as your team knows them. Godown A, Back Store, Main Shop — whatever fits.</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-icon">👷</div>
+      <div class="custom-title">Your Staff, Your Rules</div>
+      <div class="custom-desc">Add staff with names and PINs. Set who can do what. Admin controls everything. Staff only records.</div>
+    </div>
+    <div class="custom-card">
+      <div class="custom-icon">📊</div>
+      <div class="custom-title">Any Industry</div>
+      <div class="custom-desc">Textile, hardware, pharmacy, food distribution, FMCG — if you have stock moving between locations, this works.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FINAL CTA ════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-eyebrow">Get Started</div>
+    <h2 class="cta-h2">TAKE <span class="gold">CONTROL</span></h2>
+    <div class="cta-hindi">आज से — कोई कागज़ नहीं। कोई गड़बड़ नहीं।</div>
+    <p class="cta-sub">Talk to us. We'll set it up for your business — your items, your godowns, your team. Ready in a day.</p>
+
+    <div class="contact-cards">
+         <div class="contact-cards">
+      <div class="contact-card" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.22);border:1px solid rgba(34,197,94,0.22);cursor:default;">
+        <div class="c-icon" style="background:rgba(34,197,94,0.15);">📞</div>
+        <div>
+          <div class="c-label" style="color:rgba(134,239,172,0.9);"> Phone / WhatsApp</div>
+          <div class="c-val">+91 12345 67890</div>
+          <div class="c-hint">  Call or WhatsApp us directly</div>
+        </div>
+        <div class="c-arrow">→</div>
+      </div>
+      </a>
+      <a class="contact-card email" href="mailto:naveeneducation55@gmail.com">
+        <div class="c-icon email">📩</div>
+        <div>
+          <div class="c-label email">Email</div>
+          <div class="c-val">naveeneducation55@gmail.com</div>
+          <div class="c-hint">Drop us a message — we reply fast</div>
+        </div>
+        <div class="c-arrow">→</div>
+      </a>
+      <a class="contact-card linkedin" href="https://linkedin.com/in/naveenKumarDugar" target="_blank">
+        <div class="c-icon linkedin">💼</div>
+        <div>
+          <div class="c-label linkedin">LinkedIn</div>
+          <div class="c-val">linkedin.com/in/naveenKumarDugar</div>
+          <div class="c-hint">Connect professionally</div>
+        </div>
+        <div class="c-arrow">→</div>
+      </a>
+      <a class="contact-card github" href="https://github.com/naveeneducation55-cpu" target="_blank">
+        <div class="c-icon github">🐙</div>
+        <div>
+          <div class="c-label github">GitHub</div>
+          <div class="c-val">naveeneducation55-cpu</div>
+          <div class="c-hint">Explore the source</div>
+        </div>
+        <div class="c-arrow">→</div>
+      </a>
+    </div>
+
+    <a class="btn-primary" href="mailto:naveeneducation55@gmail.com" style="font-size:16px;padding:18px 48px;">📦 Get Godown Manager For My Business →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Godown <span>Manager</span></div>
+    <div class="footer-tagline">गोदाम का डिजिटल लाल खाता</div>
+  </div>
+  <div class="footer-copy">Built with ❤️ for Indian business owners · @nkdugar</div>
+</footer>
+
+</body>
+</html>
