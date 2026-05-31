@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions — Godown Manager | FutureTech</title>
+  <meta name="description" content="Terms and Conditions for Godown Manager by FutureTech. Last updated May 31, 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1117;
+      --ink-soft: #3a3d4a;
+      --ink-muted: #7a7d8a;
+      --paper: #faf9f6;
+      --paper-warm: #f3f1ec;
+      --rule: #e4e1d8;
+      --accent: #1a3a6b;
+      --accent-light: #e8edf5;
+      --accent-mid: #2f5599;
+      --warn: #7a1a1a;
+      --warn-light: #f5e8e8;
+      --green: #0f5c2e;
+      --green-light: #e8f5ee;
+      --serif: "DM Serif Display", Georgia, serif;
+      --sans: "DM Sans", system-ui, sans-serif;
+      --max: 780px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 24px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-icon svg { width: 20px; height: 20px; }
+    .brand-name { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); line-height: 1.1; }
+    .brand-sub { font-size: 0.65rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .header-badge {
+      font-size: 0.68rem; font-weight: 600;
+      color: var(--accent); background: var(--accent-light);
+      border: 1px solid #c5d3e8; border-radius: 20px;
+      padding: 5px 12px; white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0f2a52 0%, #1a3a6b 55%, #1e4d8c 100%);
+      color: #fff;
+      padding: 72px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 80% 30%, rgba(47,85,153,0.4) 0%, transparent 65%),
+        repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.025) 40px, rgba(255,255,255,0.025) 41px);
+    }
+    .hero-inner { position: relative; max-width: var(--max); margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400; line-height: 1.15;
+      margin-bottom: 20px; color: #fff;
+    }
+    .hero-meta {
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 20px;
+      font-size: 0.82rem; color: rgba(255,255,255,0.65);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+    .hero-meta svg { width: 14px; height: 14px; opacity: 0.7; }
+
+    /* ── AGREEMENT BANNER ── */
+    .agree-banner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .agree-box {
+      margin-top: 32px;
+      background: var(--warn-light);
+      border: 1.5px solid #e0b0b0;
+      border-radius: 12px;
+      padding: 20px 26px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .agree-box-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--warn);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .agree-box-icon svg { width: 16px; height: 16px; }
+    .agree-box p { font-size: 0.88rem; color: var(--warn); line-height: 1.6; }
+    .agree-box strong { color: var(--warn); }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 32px auto 0;
+      max-width: var(--max);
+    }
+    .toc-title {
+      font-family: var(--serif);
+      font-size: 1rem; color: var(--ink);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toc-title svg { width: 16px; height: 16px; color: var(--accent); }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 4px 24px;
+    }
+    .toc-grid a {
+      font-size: 0.82rem; color: var(--accent-mid);
+      text-decoration: none; padding: 4px 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+      display: flex; align-items: baseline; gap: 6px;
+    }
+    .toc-grid a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .toc-num { font-size: 0.68rem; color: var(--ink-muted); min-width: 18px; }
+
+    /* ── MAIN LAYOUT ── */
+    .page-wrap { max-width: var(--max); margin: 0 auto; padding: 56px 24px 80px; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; }
+    .section-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+    .section-num {
+      flex-shrink: 0; width: 32px; height: 32px;
+      background: var(--accent); color: #fff;
+      border-radius: 8px; font-size: 0.72rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 6px;
+    }
+    h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink); line-height: 1.25; }
+    h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); margin: 28px 0 10px; }
+
+    p { color: var(--ink-soft); margin-bottom: 14px; font-size: 0.94rem; }
+    p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 20px; margin-bottom: 14px; }
+    li { color: var(--ink-soft); font-size: 0.94rem; margin-bottom: 6px; }
+    li::marker { color: var(--accent); }
+    strong { color: var(--ink); font-weight: 600; }
+    a { color: var(--accent-mid); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: var(--accent); }
+
+    /* ── CALLOUTS ── */
+    .callout { border-radius: 10px; padding: 18px 22px; margin: 18px 0; font-size: 0.88rem; line-height: 1.65; }
+    .callout-info { background: var(--accent-light); border-left: 3px solid var(--accent); color: var(--accent); }
+    .callout-warn { background: var(--warn-light); border-left: 3px solid var(--warn); color: var(--warn); }
+    .callout-green { background: var(--green-light); border-left: 3px solid var(--green); color: var(--green); }
+    .callout p { color: inherit; margin: 0; font-size: inherit; }
+    .callout strong { color: inherit; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .highlight-box p { margin-bottom: 8px; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    /* ── DO/DONT GRID ── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .do-box, .dont-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .do-box { background: var(--green-light); border: 1px solid #b0d8be; }
+    .dont-box { background: var(--warn-light); border: 1px solid #e0b0b0; }
+    .do-box .box-head { color: var(--green); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .dont-box .box-head { color: var(--warn); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .do-box ul, .dont-box ul { padding-left: 16px; margin: 0; }
+    .do-box li { color: var(--green); font-size: 0.84rem; margin-bottom: 4px; }
+    .dont-box li { color: var(--warn); font-size: 0.84rem; margin-bottom: 4px; }
+    .do-box li::marker { color: var(--green); }
+    .dont-box li::marker { color: var(--warn); }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: var(--accent); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-icon svg { width: 22px; height: 22px; }
+    .contact-details h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+    .contact-details p { margin: 2px 0; font-size: 0.85rem; color: var(--ink-muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2f5599 40%, #1a7abf 75%, #0ea8d4 100%);
+      position: relative; overflow: hidden; padding: 0;
+    }
+    footer::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 15% 50%, rgba(255,255,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 85% 20%, rgba(14,168,212,0.25) 0%, transparent 65%),
+        repeating-linear-gradient(-55deg, transparent, transparent 38px, rgba(255,255,255,0.03) 38px, rgba(255,255,255,0.03) 39px);
+      pointer-events: none;
+    }
+    .footer-inner { position: relative; max-width: 780px; margin: 0 auto; padding: 52px 24px 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px 24px; margin-bottom: 40px; text-align: left; }
+    .footer-col-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 12px; }
+    .footer-col p { font-size: 0.82rem; color: rgba(255,255,255,0.85); margin: 0 0 6px; line-height: 1.55; }
+    .footer-col a { font-size: 0.82rem; color: #7fd4f0; text-decoration: none; display: block; margin-bottom: 6px; transition: color 0.15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-brand-icon { width: 34px; height: 34px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .footer-brand-icon svg { width: 18px; height: 18px; }
+    .footer-brand-name { font-family: var(--serif); font-size: 1.05rem; color: #fff; line-height: 1.1; }
+    .footer-brand-sub { font-size: 0.62rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 0 0 24px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom-left { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    .footer-bottom-left strong { color: rgba(255,255,255,0.7); }
+    .footer-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .footer-badge { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.08); }
+
+    /* ── SCROLL TOP ── */
+    .scroll-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(26,58,107,0.35);
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s; z-index: 200;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top:hover { background: var(--accent-mid); }
+    .scroll-top svg { width: 18px; height: 18px; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 40px; }
+      .toc-wrap { padding: 20px; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .contact-card { flex-direction: column; }
+      .page-wrap { padding: 36px 18px 60px; }
+      .do-dont { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 400px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">Legal Document &nbsp;·&nbsp; Effective May 31, 2026 &nbsp;·&nbsp; Godown Manager by FutureTech</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">Godown Manager</div>
+          <div class="brand-sub">by FutureTech</div>
+        </div>
+      </div>
+      <div class="header-badge">Terms &amp; Conditions</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Legal &amp; Compliance</div>
+      <h1>Terms &amp; Conditions</h1>
+      <div class="hero-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Last Updated: May 31, 2026
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Governed by the Laws of India
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          For Businesses &amp; Registered Traders
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGREEMENT BANNER -->
+  <div class="agree-banner">
+    <div class="agree-box">
+      <div class="agree-box-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <p><strong>Please read these Terms carefully before using Godown Manager.</strong> By downloading, installing, registering for, or using the application or its website, you agree to be bound by these Terms and Conditions. If you do not agree to all of these terms, do not use the Services. Your continued use of the Services following any changes to these Terms constitutes acceptance of those changes.</p>
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div style="max-width:780px;margin:0 auto;padding:0 24px;">
+    <div class="toc-wrap">
+      <div class="toc-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Table of Contents
+      </div>
+      <div class="toc-grid">
+        <a href="#s1"><span class="toc-num">01</span> What Is Godown Manager?</a>
+        <a href="#s2"><span class="toc-num">02</span> Who Can Use the Services</a>
+        <a href="#s3"><span class="toc-num">03</span> Account Registration &amp; Responsibilities</a>
+        <a href="#s4"><span class="toc-num">04</span> Acceptable Use Policy</a>
+        <a href="#s5"><span class="toc-num">05</span> Your Data — Ownership &amp; Licence</a>
+        <a href="#s6"><span class="toc-num">06</span> Service Availability &amp; Tiers</a>
+        <a href="#s7"><span class="toc-num">07</span> Trial Period, Subscriptions &amp; Termination</a>
+        <a href="#s8"><span class="toc-num">08</span> Intellectual Property</a>
+        <a href="#s9"><span class="toc-num">09</span> Limitation of Liability &amp; Disclaimers</a>
+        <a href="#s10"><span class="toc-num">10</span> Indemnification</a>
+        <a href="#s11"><span class="toc-num">11</span> Governing Law &amp; Dispute Resolution</a>
+        <a href="#s12"><span class="toc-num">12</span> Changes to These Terms</a>
+        <a href="#s13"><span class="toc-num">13</span> Contact for Disputes &amp; General Enquiries</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrap">
+
+    <!-- DEFINITIONS -->
+    <div class="section" style="border-bottom:1px solid var(--rule);padding-bottom:40px;margin-bottom:40px;">
+      <h3 style="margin-top:0;">Definitions</h3>
+      <p>Throughout these Terms, the following words carry the meanings given below:</p>
+      <ul>
+        <li><strong>"Agreement"</strong> means these Terms and Conditions together with our Privacy Policy and any other policies incorporated herein by reference.</li>
+        <li><strong>"Application" / "App"</strong> means the Godown Manager mobile application available on Android and/or iOS platforms.</li>
+        <li><strong>"Company" / "we" / "us" / "our"</strong> means FutureTech, registered at Bikaner, Rajasthan 334401, India.</li>
+        <li><strong>"Content"</strong> means all data, text, information, inventory records, transaction logs, files, images, and other material submitted to or generated through the Services.</li>
+        <li><strong>"Device"</strong> means any internet-connected device (smartphone, tablet, or computer) used to access the Services.</li>
+        <li><strong>"Free Tier / Trial"</strong> means the no-cost access period or feature-limited plan made available at our discretion.</li>
+        <li><strong>"Godown"</strong> means a warehouse, storage facility, shop, or any physical location that a User tracks inventory for within the App.</li>
+        <li><strong>"Services"</strong> means the Godown Manager application, its website at <a href="https://marketing-content-blond.vercel.app/" target="_blank" rel="noopener">https://marketing-content-blond.vercel.app/</a>, associated APIs, and any related services or features provided by the Company.</li>
+        <li><strong>"Staff / Sub-user"</strong> means any person added to a User's account by the Account Owner to record stock movements on their behalf.</li>
+        <li><strong>"Subscription"</strong> means a paid plan that grants access to premium features of the Services for a defined billing period.</li>
+        <li><strong>"User" / "you" / "your"</strong> means the individual or business entity who has registered for and is using the Services.</li>
+      </ul>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section" id="s1">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <h2>What Is Godown Manager?</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> Godown Manager is a real-time mobile inventory management tool built for small wholesale and trading businesses in India.</em></p></div>
+      <p>Godown Manager is a mobile inventory management application developed and operated by FutureTech. The App is designed to help small wholesale businesses — including but not limited to textile traders, grocery distributors, hardware merchants, and general trading businesses — manage stock across multiple godowns and shop locations.</p>
+      <p>Core features of the Services include:</p>
+      <ul>
+        <li><strong>Real-time stock tracking</strong> — every goods movement (inward, outward, transfer, or delivery) is recorded the moment it occurs and synced across all connected devices simultaneously.</li>
+        <li><strong>Multi-location management</strong> — stock levels across multiple godowns and retail shops are tracked in a single unified interface.</li>
+        <li><strong>Staff access</strong> — multiple staff members can be added to a business account, each recording their respective transactions.</li>
+        <li><strong>Transaction history &amp; logs</strong> — a complete, time-stamped audit trail of all stock movements.</li>
+        <li><strong>Low-stock alerts</strong> — automated notifications when inventory falls below defined thresholds.</li>
+      </ul>
+      <p>The Services are intended to replace paper-based register systems currently used by small wholesale businesses. The App is <strong>not</strong> an accounting software, invoicing platform, GST filing tool, or financial advisory service. Any figures displayed in the App are for inventory tracking purposes only and should not be relied upon for tax, financial, or compliance purposes without independent verification.</p>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section" id="s2">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <h2>Who Can Use the Services</h2>
+      </div>
+      <div class="callout callout-warn"><p><strong>The Services are available to businesses and individuals aged 18 years or older only.</strong> By using the Services, you confirm you meet these eligibility requirements.</p></div>
+
+      <h3>Age Requirement</h3>
+      <p>You must be at least <strong>18 years of age</strong> (or the legal age of majority in your jurisdiction, if higher) to register for or use the Services. If you are under 18, you are not permitted to use the Services under any circumstances. By creating an account, you represent and warrant that you are 18 years of age or older.</p>
+
+      <h3>Business Use</h3>
+      <p>Godown Manager is a <strong>business-to-business (B2B) service</strong> designed exclusively for use by businesses, sole traders, partnerships, and commercial entities engaged in the wholesale, retail, or trading of goods. The Services are not intended for personal, household, or consumer use.</p>
+      <p>By registering, you represent and warrant that:</p>
+      <ul>
+        <li>You are registering on behalf of a legitimate, lawfully operating business entity or as a self-employed trader;</li>
+        <li>You have the authority and legal capacity to enter into this Agreement on behalf of yourself or your business;</li>
+        <li>The information you provide during registration is accurate, current, and complete;</li>
+        <li>Your use of the Services will comply with all applicable Indian laws and regulations, including but not limited to the Goods and Services Tax (GST) Act, the Shops and Establishments Act applicable in your state, and any trade licensing requirements applicable to your business.</li>
+      </ul>
+
+      <h3>Geographic Availability</h3>
+      <p>The Services are primarily designed for businesses operating in India. While the App may be accessible from other countries, we make no representation that the Services are appropriate or available for use outside India. If you access the Services from outside India, you do so at your own risk and are responsible for compliance with local laws.</p>
+
+      <h3>Right to Refuse</h3>
+      <p>We reserve the right, at our sole discretion, to refuse registration to any person or entity, or to terminate any existing account, without notice, if we have reasonable grounds to believe that eligibility requirements are not met or that the account poses a risk to the integrity of the Services.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section" id="s3">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2>Account Registration &amp; Responsibilities</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> You are fully responsible for all activity under your account. Keep your PIN, password, and login credentials secure at all times.</em></p></div>
+
+      <h3>Registration</h3>
+      <p>To access the Services, you must create an account by providing accurate and complete information, including your name, mobile number or email address, shop/business name, and location. You may register using your Google account via Google OAuth 2.0 or Google Sign-In, or via Firebase Authentication using email and password.</p>
+
+      <h3>Account Security — PIN &amp; Password</h3>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>Maintaining the confidentiality of your account PIN, password, and any other login credentials;</li>
+        <li>All activities that occur under your account, whether or not authorised by you;</li>
+        <li>Ensuring that all staff members or sub-users you add to your account comply with these Terms;</li>
+        <li>Immediately notifying us at the contact details in <a href="#s13">Section 13</a> if you become aware of any unauthorised access to, or use of, your account.</li>
+      </ul>
+      <div class="callout callout-warn">
+        <p><strong>Do not share your PIN or password.</strong> We will never ask for your PIN or password via SMS, phone call, or email. You must not write your PIN inside the App, share it with anyone outside your authorised business staff, or use easily guessable PINs such as 0000, 1234, or your date of birth.</p>
+      </div>
+      <p>We are not liable for any loss or damage arising from your failure to comply with this security obligation. If you suspect that your credentials have been compromised, you must change them immediately and contact us.</p>
+
+      <h3>Account Information Accuracy</h3>
+      <p>You agree to keep your account information accurate, complete, and up to date at all times. Providing false, misleading, or outdated information is a breach of these Terms and may result in immediate termination of your account.</p>
+
+      <h3>Staff / Sub-User Accounts</h3>
+      <p>The Account Owner (the person who registers the primary business account) is solely and fully responsible for all actions taken by staff members or sub-users added to the account. This includes, but is not limited to, incorrect stock entries, unauthorised access, and any misuse of the App by staff. You must ensure that all staff members you grant access to understand and comply with these Terms and your internal business policies.</p>
+
+      <h3>One Account Per Business</h3>
+      <p>Each business entity should maintain a single primary account. Creating multiple accounts to circumvent trial periods, feature limitations, or subscription requirements is strictly prohibited and constitutes a material breach of these Terms.</p>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="section" id="s4">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <h2>Acceptable Use Policy</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> Use the App only for lawful inventory management. Do not misuse it for illegal activity, harassment, or to harm others or the platform.</em></p></div>
+      <p>You agree to use the Services only for lawful purposes and in a manner consistent with these Terms. The following sets out what is and is not permitted.</p>
+
+      <div class="do-dont">
+        <div class="do-box">
+          <div class="box-head">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Permitted Uses
+          </div>
+          <ul>
+            <li>Tracking legitimate business inventory across godowns and shops</li>
+            <li>Recording genuine stock movements, inward/outward transfers, and deliveries</li>
+            <li>Managing authorised staff access for your business</li>
+            <li>Exporting your own data for your business records</li>
+            <li>Using the Services as a complementary tool alongside your accounting software</li>
+          </ul>
+        </div>
+        <div class="dont-box">
+          <div class="box-head">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Prohibited Uses
+          </div>
+          <ul>
+            <li>Tracking or concealing goods involved in illegal activity</li>
+            <li>Entering false, fraudulent, or fabricated stock records</li>
+            <li>Attempting to reverse-engineer, hack, or exploit the App</li>
+            <li>Using the Services to facilitate tax evasion or GST fraud</li>
+            <li>Reselling or sub-licensing access to third parties</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Prohibited Activities — Full List</h3>
+      <p>You must not, and must not allow any staff member or third party to:</p>
+      <ul>
+        <li>Use the Services in violation of any applicable Indian law or regulation, including the Indian Penal Code, the Information Technology Act 2000 and its amendments, the Prevention of Money Laundering Act, GST laws, or any other statute;</li>
+        <li>Use the Services to track, store records of, or facilitate the trade of prohibited goods, counterfeit products, narcotics, weapons, or any item whose manufacture, possession, sale, or trade is illegal under Indian law;</li>
+        <li>Enter fictitious, fabricated, or deliberately inaccurate inventory data for the purpose of fraud, tax evasion, misrepresentation to third parties, or any other unlawful purpose;</li>
+        <li>Attempt to gain unauthorised access to any part of the Services, other user accounts, or our backend systems;</li>
+        <li>Introduce any virus, malware, ransomware, spyware, or other malicious code into the Services;</li>
+        <li>Use automated scripts, bots, crawlers, or scraping tools to access or extract data from the Services;</li>
+        <li>Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Services without our express written permission;</li>
+        <li>Create multiple accounts to circumvent paid plan requirements or exploit the free/trial tier;</li>
+        <li>Use the Services in any way that could damage, disable, overburden, or impair our servers or networks, or interfere with any other party's use of the Services;</li>
+        <li>Harass, threaten, or intimidate any FutureTech employee, contractor, or representative.</li>
+      </ul>
+
+      <h3>Monitoring &amp; Enforcement</h3>
+      <p>We reserve the right (but have no obligation) to monitor use of the Services for compliance with these Terms. We may investigate any suspected violation and take appropriate action, including suspending or terminating your account, reporting to law enforcement authorities, and pursuing civil legal remedies. We will cooperate fully with law enforcement agencies upon receipt of a lawful request.</p>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section" id="s5">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <h2>Your Data — Ownership &amp; Licence</h2>
+      </div>
+      <div class="callout callout-green"><p><strong>Your business data belongs to you.</strong> We do not claim ownership of any inventory data, transaction records, or business information you enter into Godown Manager.</p></div>
+
+      <h3>Your Ownership of Business Data</h3>
+      <p>All Content that you create, upload, or submit through the Services — including inventory records, stock movement logs, godown names, product lists, transaction histories, and business information — remains your sole property. FutureTech makes no claim of ownership over your business data.</p>
+
+      <h3>Licence You Grant to Us</h3>
+      <p>By using the Services, you grant FutureTech a limited, non-exclusive, royalty-free, worldwide licence to access, store, process, display, and transmit your Content <strong>solely to the extent necessary to provide the Services to you</strong>. This licence does not permit us to sell your data to third parties, use it for advertising, or share it except as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      <p>This licence terminates when you delete your Content or close your account, subject to any retention obligations we have under applicable law.</p>
+
+      <h3>Aggregated &amp; Anonymised Data</h3>
+      <p>We may use anonymised, aggregated, and de-identified data derived from all users' use of the Services (from which your identity and business information cannot be individually identified) for product improvement, analytics, benchmarking, and research purposes. Such aggregated data does not constitute your "Content" and is not subject to the ownership protections above.</p>
+
+      <h3>Data Accuracy</h3>
+      <p>You are solely responsible for the accuracy and completeness of all data you enter into the Services. FutureTech does not verify or validate the accuracy of your inventory records and bears no responsibility for decisions made based on inaccurate data entered by you or your staff.</p>
+
+      <h3>Data Export</h3>
+      <p>You may export your business data from the Services at any time during your active subscription or trial period. We will provide data in a commonly used, machine-readable format upon request. Upon termination of your account, you are responsible for exporting all data you wish to retain before the account closure date.</p>
+
+      <h3>Data Deletion</h3>
+      <p>Upon account termination or deletion, we will delete or anonymise your personal data in accordance with our <a href="privacy-policy.html">Privacy Policy</a>. We are not responsible for any loss of data following account termination, particularly where you have failed to export your data prior to termination.</p>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section" id="s6">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <h2>Service Availability &amp; Tiers</h2>
+      </div>
+      <div class="callout callout-warn"><p><strong>We do not guarantee uninterrupted availability of the Services, particularly on the Free Tier.</strong> Critical business operations should not rely solely on Godown Manager without a contingency plan.</p></div>
+
+      <h3>Service Tiers</h3>
+      <p>Godown Manager may be made available in the following tiers (subject to change at our discretion with appropriate notice):</p>
+      <div class="highlight-box">
+        <p><strong>Free Tier / Trial Period:</strong> Access to a limited set of features for a defined trial period or with defined usage caps (e.g. number of godowns, products, or transactions). The Free Tier is provided "as-is" with no uptime commitment, no SLA, and no guarantee of continued availability. We may modify, limit, or discontinue the Free Tier at any time with reasonable notice.</p>
+        <p><strong>Paid Subscription:</strong> Access to the full feature set for a recurring billing period (monthly or annually). Paid subscribers receive enhanced support and, where offered, a defined service level commitment as specified in the applicable subscription plan details.</p>
+      </div>
+
+      <h3>No Uptime Guarantee on Free Tier</h3>
+      <p>We strive to provide reliable and continuous access to the Services; however, we <strong>do not warrant or guarantee</strong> that the Services will be available at all times, error-free, uninterrupted, or free from defects, particularly on the Free Tier. The Services may be temporarily unavailable due to scheduled maintenance, unplanned outages, third-party service failures (such as Firebase or cloud infrastructure providers), or Force Majeure events.</p>
+      <p>We shall not be liable to you or any third party for any interruption, suspension, or termination of the Services, whether or not caused by our actions.</p>
+
+      <h3>Planned Maintenance</h3>
+      <p>We will make reasonable efforts to notify users of planned maintenance that may cause significant downtime, typically via in-app notifications or email. Emergency maintenance may be performed without prior notice.</p>
+
+      <h3>Third-Party Services</h3>
+      <p>The Services rely on third-party infrastructure and services including, but not limited to, Google Firebase, Google OAuth, and Google Analytics. We are not responsible for the availability, security, or performance of these third-party services. Downtime or errors caused by third-party services are outside our control and do not constitute a breach of these Terms by FutureTech.</p>
+
+      <h3>Feature Changes</h3>
+      <p>We reserve the right to add, modify, or remove features from any tier of the Services at any time. For paid subscribers, we will provide at least 30 days' advance notice before removing any material feature included in a current paid plan, and will offer a pro-rated refund for any prepaid period if we remove a feature that was a core reason for your subscription.</p>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="section" id="s7">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <h2>Trial Period, Subscriptions &amp; Termination</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> Your trial has a defined duration. When it ends, access to premium features will be restricted. You can also terminate your account at any time.</em></p></div>
+
+      <h3>Trial Period</h3>
+      <p>New accounts may be granted access to a free trial of the Services for a period determined at our sole discretion (the "Trial Period"). During the Trial Period, you will have access to a defined set of features as specified within the App. At the end of the Trial Period:</p>
+      <ul>
+        <li>Your account will automatically be downgraded to the Free Tier, with access limited to basic features; or</li>
+        <li>You will be prompted to select a paid Subscription to continue access to premium features.</li>
+      </ul>
+      <p>We may modify the duration and scope of the Trial Period at any time. Any data you have entered during the Trial Period will remain accessible on the Free Tier or upon upgrading to a paid Subscription.</p>
+
+      <h3>Subscriptions &amp; Billing</h3>
+      <p>Paid Subscriptions are billed in advance on a recurring basis (monthly or annually, as selected). By subscribing, you authorise us to charge your selected payment method for the applicable subscription fee at the beginning of each billing period. All prices are in Indian Rupees (INR) and are inclusive of applicable taxes unless stated otherwise.</p>
+      <ul>
+        <li><strong>Auto-renewal:</strong> Subscriptions auto-renew at the end of each billing period unless cancelled at least 24 hours before the renewal date.</li>
+        <li><strong>Price changes:</strong> We will provide at least 30 days' notice before increasing subscription prices. Continued use after the effective date of a price change constitutes acceptance.</li>
+        <li><strong>Refunds:</strong> Subscription fees are generally non-refundable except as required by applicable law or as expressly stated in our refund policy. If you cancel mid-period, you retain access until the end of the current billing period.</li>
+      </ul>
+
+      <h3>Termination by You</h3>
+      <p>You may terminate your account at any time by using the account deletion feature within the App or by contacting us at the details in <a href="#s13">Section 13</a>. Upon termination:</p>
+      <ul>
+        <li>Your access to the Services will cease immediately or at the end of the current billing period (for paid subscribers);</li>
+        <li>You must export any data you wish to retain before the termination date — we are not responsible for data loss following account closure;</li>
+        <li>We will delete or anonymise your personal data in accordance with our Privacy Policy, subject to legal retention obligations.</li>
+      </ul>
+
+      <h3>Termination or Suspension by Us</h3>
+      <p>We reserve the right to suspend or terminate your account, with or without notice, if:</p>
+      <ul>
+        <li>You breach any provision of these Terms;</li>
+        <li>We are required to do so by law or a regulatory authority;</li>
+        <li>We have reasonable grounds to suspect fraudulent, abusive, or illegal activity on your account;</li>
+        <li>You fail to pay any subscription fees when due;</li>
+        <li>We decide to discontinue the Services (in which case we will give at least 30 days' notice where practicable).</li>
+      </ul>
+      <p>Where termination is due to your breach of these Terms, no refund of any prepaid subscription fees will be due to you.</p>
+
+      <h3>Effect of Termination</h3>
+      <p>Upon termination of your account for any reason, all rights and licences granted to you under these Terms will immediately cease. Any provisions of these Terms that by their nature should survive termination shall survive, including but not limited to Sections 9 (Limitation of Liability), 10 (Indemnification), and 11 (Governing Law).</p>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="section" id="s8">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <h2>Intellectual Property</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> The App, its design, code, and branding are our property. You get a limited licence to use it — not to own it.</em></p></div>
+
+      <h3>Our Intellectual Property</h3>
+      <p>The Services and all content, features, functionality, design, source code, software, algorithms, databases, user interfaces, branding, logos, trademarks, and other materials forming part of or associated with Godown Manager (collectively, "FutureTech IP") are owned by FutureTech or its licensors and are protected by applicable intellectual property laws, including Indian copyright law (Copyright Act, 1957), trademark law, and the Information Technology Act, 2000.</p>
+      <p>Nothing in these Terms transfers any ownership of FutureTech IP to you.</p>
+
+      <h3>Licence to You</h3>
+      <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable licence to download, install, and use the App on Devices that you own or control, solely for your own legitimate business inventory management purposes as contemplated by these Terms.</p>
+      <p>This licence does not permit you to:</p>
+      <ul>
+        <li>Copy, modify, distribute, sell, or lease any part of the Services or the underlying software;</li>
+        <li>Reverse-engineer, decompile, disassemble, or attempt to extract the source code of the App;</li>
+        <li>Remove, alter, or obscure any copyright, trademark, or other proprietary notice;</li>
+        <li>Use any FutureTech trademark, logo, or brand name without our prior written consent.</li>
+      </ul>
+
+      <h3>Feedback</h3>
+      <p>If you provide us with any suggestions, ideas, bug reports, or feedback about the Services ("Feedback"), you grant FutureTech a perpetual, irrevocable, royalty-free, worldwide licence to use, incorporate, and build upon that Feedback in any way without any obligation, restriction, or compensation to you.</p>
+    </div>
+
+    <!-- SECTION 9 -->
+    <div class="section" id="s9">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <h2>Limitation of Liability &amp; Disclaimers</h2>
+      </div>
+      <div class="callout callout-warn">
+        <p><strong>Please read this section carefully. It limits our legal responsibility to you.</strong> To the maximum extent permitted by applicable law, FutureTech's total aggregate liability to you is limited as described below.</p>
+      </div>
+
+      <h3>Disclaimer of Warranties</h3>
+      <p>THE SERVICES ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, FUTURETECH EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+      <ul>
+        <li>Any implied warranty of merchantability, fitness for a particular purpose, title, or non-infringement;</li>
+        <li>Any warranty that the Services will meet your requirements or be available on an uninterrupted, secure, or error-free basis;</li>
+        <li>Any warranty regarding the accuracy, reliability, completeness, or timeliness of any data, content, or results obtained through the Services;</li>
+        <li>Any warranty that defects in the Services will be corrected.</li>
+      </ul>
+
+      <h3>Limitation of Liability</h3>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL FUTURETECH, ITS DIRECTORS, EMPLOYEES, CONTRACTORS, AGENTS, LICENSORS, OR SERVICE PROVIDERS BE LIABLE FOR ANY:</p>
+      <ul>
+        <li><strong>Indirect, incidental, special, consequential, or punitive damages,</strong> including but not limited to loss of profits, loss of revenue, loss of data, loss of business opportunity, or business interruption;</li>
+        <li><strong>Loss or corruption of inventory data</strong> arising from App errors, sync failures, device loss, or account termination;</li>
+        <li><strong>Financial losses</strong> arising from reliance on inventory figures displayed in the App for purchasing, sales, or business decisions;</li>
+        <li><strong>Losses arising from unauthorised access</strong> to your account due to your failure to maintain credential security;</li>
+        <li><strong>Losses caused by third-party services</strong> (including Firebase, Google, or payment processors) used to deliver the Services.</li>
+      </ul>
+      <p>Where liability cannot be fully excluded by law (including under the Consumer Protection Act, 2019 to the extent applicable), our total aggregate liability to you for all claims arising out of or relating to the Services shall not exceed the amount you paid to us in subscription fees in the <strong>three (3) months immediately preceding the event giving rise to the claim</strong>, or <strong>INR 1,000</strong> (whichever is greater).</p>
+
+      <h3>No Financial or Legal Advice</h3>
+      <p>The Services are an inventory tracking tool only. Nothing in the Services constitutes financial, accounting, tax, legal, or compliance advice. You should consult qualified professionals for all such matters. FutureTech bears no liability for decisions made on the basis of data in the App.</p>
+
+      <h3>Backup Responsibility</h3>
+      <p>You are solely responsible for maintaining independent backups of your business data. While we take reasonable measures to protect data stored on our servers, we do not guarantee that data will never be lost and strongly recommend that you maintain your own records.</p>
+    </div>
+
+    <!-- SECTION 10 -->
+    <div class="section" id="s10">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <h2>Indemnification</h2>
+      </div>
+      <p>You agree to defend, indemnify, and hold harmless FutureTech and its directors, officers, employees, contractors, agents, licensors, successors, and assigns from and against any and all claims, liabilities, damages, judgments, awards, losses, costs, expenses, and fees (including reasonable legal fees) arising out of or relating to:</p>
+      <ul>
+        <li>Your use of or inability to use the Services;</li>
+        <li>Your breach of these Terms or any representation, warranty, or obligation contained herein;</li>
+        <li>Your violation of any applicable law or the rights of any third party, including intellectual property rights;</li>
+        <li>Any Content submitted by you or your staff through the Services, including fraudulent, false, or illegal data entries;</li>
+        <li>Any unauthorised use of your account credentials by you, your staff, or any third party as a result of your failure to maintain security;</li>
+        <li>Any claim by your customers, suppliers, or business partners arising from your use of the Services.</li>
+      </ul>
+      <p>We reserve the right to assume the exclusive defence and control of any matter subject to indemnification by you, at your cost and expense. You agree not to settle any such claim without our prior written consent.</p>
+    </div>
+
+    <!-- SECTION 11 -->
+    <div class="section" id="s11">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <h2>Governing Law &amp; Dispute Resolution</h2>
+      </div>
+      <div class="callout callout-info"><p><em><strong>In Short:</strong> These Terms are governed by the laws of India. Disputes shall first be attempted to be resolved amicably, failing which they shall be referred to courts at Bikaner, Rajasthan.</em></p></div>
+
+      <h3>Governing Law</h3>
+      <p>These Terms and Conditions and any dispute or claim arising out of or in connection with them (including non-contractual disputes or claims) shall be governed by and construed in accordance with the laws of <strong>the Republic of India</strong>, without regard to its conflict of law provisions.</p>
+      <p>Applicable Indian legislation includes, but is not limited to:</p>
+      <ul>
+        <li>The Indian Contract Act, 1872;</li>
+        <li>The Information Technology Act, 2000 and the Information Technology (Amendment) Act, 2008;</li>
+        <li>The Digital Personal Data Protection Act, 2023;</li>
+        <li>The Consumer Protection Act, 2019 (to the extent applicable to business users);</li>
+        <li>The Specific Relief Act, 1963.</li>
+      </ul>
+
+      <h3>Dispute Resolution — Amicable Settlement First</h3>
+      <p>In the event of any dispute, controversy, or claim arising out of or relating to these Terms, or the breach, termination, or validity thereof, the parties shall first attempt to resolve the dispute amicably through good-faith negotiation. Either party may initiate this process by sending a written notice to the other party at the contact details provided in <a href="#s13">Section 13</a>, clearly describing the nature of the dispute and the remedy sought.</p>
+      <p>The parties shall have <strong>thirty (30) days</strong> from the date of receipt of such notice to resolve the dispute amicably. If the dispute cannot be resolved within this period, either party may pursue formal legal proceedings.</p>
+
+      <h3>Jurisdiction</h3>
+      <p>If amicable resolution fails, you agree to submit to the <strong>exclusive jurisdiction of the courts located in Bikaner, Rajasthan, India</strong> for the resolution of all disputes arising out of or in connection with these Terms or the Services. You irrevocably waive any objection to proceedings in such courts on the grounds of inconvenient forum or any other grounds.</p>
+
+      <h3>Users Outside India</h3>
+      <p>If you are accessing the Services from outside India, you acknowledge that your use is subject to Indian law as stated above and consent to the exclusive jurisdiction of the courts at Bikaner, Rajasthan, India for dispute resolution purposes.</p>
+    </div>
+
+    <!-- SECTION 12 -->
+    <div class="section" id="s12">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <h2>Changes to These Terms</h2>
+      </div>
+      <p>We reserve the right to modify these Terms at any time. When we make changes, we will:</p>
+      <ul>
+        <li>Update the "Last Updated" date at the top of this page;</li>
+        <li>For material changes, provide at least <strong>14 days' advance notice</strong> via in-app notification, push notification, or email to the address associated with your account before the changes take effect;</li>
+        <li>For minor or non-material changes (such as corrections, clarifications, or changes required by law), the updated Terms will take effect immediately upon posting.</li>
+      </ul>
+      <p>Your continued use of the Services after the effective date of any updated Terms constitutes your acceptance of the revised Terms. If you do not agree to the updated Terms, you must stop using the Services and may terminate your account as described in <a href="#s7">Section 7</a>.</p>
+      <p>We encourage you to periodically review this page to stay informed about our current Terms. The most recent version will always be available within the App and on our website.</p>
+
+      <h3>Entire Agreement</h3>
+      <p>These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a> and any other policies or agreements expressly incorporated herein, constitute the entire agreement between you and FutureTech with respect to the Services and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, whether written or oral.</p>
+
+      <h3>Severability</h3>
+      <p>If any provision of these Terms is found by a court of competent jurisdiction to be invalid, illegal, or unenforceable, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions of these Terms shall continue in full force and effect.</p>
+
+      <h3>Waiver</h3>
+      <p>Our failure to enforce any right or provision of these Terms shall not be deemed a waiver of that right or provision. No waiver of any breach shall be deemed a waiver of any subsequent breach of the same or any other provision.</p>
+
+      <h3>Assignment</h3>
+      <p>You may not assign or transfer these Terms, or any rights or obligations hereunder, to any third party without our prior written consent. We may freely assign these Terms, including in connection with a merger, acquisition, or sale of all or substantially all of our assets, with notice to you.</p>
+    </div>
+
+    <!-- SECTION 13 -->
+    <div class="section" id="s13">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <h2>Contact for Disputes &amp; General Enquiries</h2>
+      </div>
+      <p>For any questions, disputes, notices under these Terms, or general enquiries about Godown Manager, please contact us using the details below. We aim to respond to all written enquiries within <strong>7 business days</strong>.</p>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contact-details">
+          <h4>FutureTech — Legal &amp; Compliance</h4>
+          <p>Bikaner, Rajasthan 334401, India</p>
+          <p style="margin-top:8px; font-style:italic;">For legal notices and dispute communications, please mark your correspondence: <strong>"LEGAL NOTICE — GODOWN MANAGER"</strong></p>
+          <p style="margin-top:6px;">For data subject access requests: <a href="https://app.termly.io/dsar/0f11abf7-d6c8-42a0-8b5a-5a174d3f864f" target="_blank" rel="noopener" style="color:var(--accent-mid);">Submit a DSAR</a></p>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:24px;">
+        <p>For consumer grievances under the <strong>Consumer Protection Act, 2019</strong> or the <strong>IT Act, 2000</strong>, you may also approach the relevant consumer forum or adjudicating officer at your jurisdiction. We are committed to resolving all complaints promptly and in good faith.</p>
+      </div>
+    </div>
+
+  </div><!-- /page-wrap -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand-row">
+            <div class="footer-brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="footer-brand-name">Godown Manager</div>
+              <div class="footer-brand-sub">by FutureTech</div>
+            </div>
+          </div>
+          <p>Real-time inventory management for small wholesale &amp; trading businesses across India.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Registered Address</div>
+          <p>FutureTech</p>
+          <p>Bikaner, Rajasthan 334401</p>
+          <p>India</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal Documents</div>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="https://app.termly.io/dsar/0f11abf7-d6c8-42a0-8b5a-5a174d3f864f" target="_blank" rel="noopener">Data Subject Access Request</a>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <strong>Terms &amp; Conditions</strong> &nbsp;·&nbsp; Last updated May 31, 2026 &nbsp;·&nbsp; © 2026 FutureTech. All rights reserved.
+        </div>
+        <div class="footer-badges">
+          <span class="footer-badge">Indian Contract Act</span>
+          <span class="footer-badge">IT Act 2000</span>
+          <span class="footer-badge">DPDP 2023</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
